@@ -1,0 +1,73 @@
+img {
+/*width:100%;*/
+}
+
+body{
+  padding: 0;
+  margin: 0;
+}
+
+#defaultCanvas0 {
+  display: block;
+  margin:0 auto;
+  z-index: 1;
+  position: relative;
+}
+#wrapper canvas, #title{
+position: absolute;
+}
+
+#title{
+  display: block;
+  margin:0 auto;
+  height: 200px;
+  z-index: 4;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 20%;
+  font-family: 'Yantramanav', sans-serif;
+  font-size: 1.5em;
+  /*color: white;*/
+  padding-left: 20%;
+  padding-right: 20%;
+  animation: colorz 30s forwards;
+  animation-fill-mode:forwards;
+}
+
+
+@keyframes colorz {
+    0% {
+        color: black;
+        text-shadow:none;
+    }
+    50% {
+        color:white;
+        text-shadow: 0 0 20px black;
+    }
+    100% {
+        color:white;
+        text-shadow: 0 0 20px black;
+    }
+}
+
+
+#wrapper{
+/*    width: 1000px;
+    position: relative;
+    height: 450px;*/
+}
+
+@media only screen and (max-width: 500px) {
+  #wrapper{
+      /*width: 450px;*/
+  }
+  #title{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 20%;
+    font-size: 1.3em;
+    /*width: 450px;*/
+  }
+}
+
+}
