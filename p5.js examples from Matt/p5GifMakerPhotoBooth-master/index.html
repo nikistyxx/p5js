@@ -1,0 +1,224 @@
+<html>
+  <head>
+    <script src="gif.js"></script>    
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.3.11/p5.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.3.11/addons/p5.dom.js"></script>
+    <script src="sketch.js"></script>
+    <script type="text/javascript" src="gifshot.js"></script>
+
+    <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+    	.imageClass{
+    		margin:2px;
+    		transition: all 300ms ease-in;
+    	}
+    	.imageClass:hover{
+    		transform:scale(1.1);
+    	}
+
+    	.selected{
+    		border: 2px solid black;
+    	}
+    	#defaultCanvas{
+    		padding-left: 10px;
+    	}
+
+    	.wrapper{
+    		
+    	}
+
+    	h1{
+    		font-family: 'Arvo', serif;
+    		font-weight: 400;
+    		padding-top: 10px;
+    		padding-left: 10px;
+    	}
+
+    	body{
+    		background-color: #eee;
+    		margin: 0px;
+    		padding:0px;
+    	}
+
+    	button{
+    		font-family: 'Arvo', serif;
+    		font-size:17px;
+    		color:white;
+    		border-style:none;
+    	}
+    	button:hover{
+    		opacity: .8;
+    	}
+
+    	ul li{
+    		font-family: 'Arvo', serif;
+    		font-size:15px;
+    	}
+
+
+		.wrap {
+		  padding: 40px;
+		  text-align: center;
+		}
+		hr {
+		  clear: both;
+		  margin-top: 40px;
+		  margin-bottom: 40px;
+		  border: 0;
+		  border-top: 1px solid #aaaaaa;
+		}
+		
+		p {
+		  margin-bottom: 20px;
+		}
+		.btn {
+		  background: #F6511D;
+		  
+		
+		  color: #fff;
+		
+		 font-size:17px;
+		 font-family: 'Arvo', serif;
+		  padding: 10px;
+		text-decoration: none;
+		  position: relative;
+		  transition: color .1s ease;
+		  /* top: 40em;*/
+		  position: relative;
+		  top:-163px;
+		  right:-749px;
+		}
+		.btn:hover {
+		  opacity: .8;
+		}
+		.btn.btn-big {
+		  
+		}
+		.btn-close {
+		  color: #aaaaaa;
+		  font-size: 30px;
+		  text-decoration: none;
+		  position: absolute;
+		  right: 5px;
+		  top: 0;
+		}
+		.btn-close:hover {
+		  color: #919191;
+		}
+		.modal:before {
+		  content: "";
+		  display: none;
+		  background: rgba(0, 0, 0, 0.6);
+		  position: fixed;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  z-index: 10;
+		}
+		.modal:target:before {
+		  display: block;
+		}
+		.modal:target .modal-dialog {
+		  -webkit-transform: translate(0, 0);
+		  -ms-transform: translate(0, 0);
+		  transform: translate(0, 0);
+		  top: 20%;
+		}
+		.modal-dialog {
+		  background: #fefefe;
+		  border: #333333 solid 1px;
+		  border-radius: 5px;
+		  margin-left: -200px;
+		  position: fixed;
+		  left: 50%;
+		  top: -100%;
+		  z-index: 11;
+		  width: 560px;
+		  -webkit-transform: translate(0, -500%);
+		  -ms-transform: translate(0, -500%);
+		  transform: translate(0, -500%);
+		  -webkit-transition: -webkit-transform 0.3s ease-out;
+		  -moz-transition: -moz-transform 0.3s ease-out;
+		  -o-transition: -o-transform 0.3s ease-out;
+		  transition: transform 0.3s ease-out;
+		}
+		.modal-body {
+		  padding: 20px;
+		}
+		.modal-header,
+		.modal-footer {
+		  padding: 10px 20px;
+		}
+		.modal-header {
+		  border-bottom: #eeeeee solid 1px;
+		}
+		.modal-header h2 {
+		  font-size: 20px;
+		}
+		.modal-footer {
+		  border-top: #eeeeee solid 1px;
+		  text-align: right;
+		}
+		/*ADDED TO STOP SCROLLING TO TOP*/
+		#close {
+		  display: none;
+		}
+
+		#wrapper{
+			transition: all 300ms ease-out;
+			margin: 0px 0px;
+			height:82%;
+		}
+
+    </style>
+  </head>
+  <body>
+
+
+ <div class="modal" id="modal-one" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <h2>Info</h2>
+      <a href="#close" class="btn-close" aria-hidden="true">Close</a> <!--CHANGED TO "#close"-->
+    </div>
+    <div class="modal-body">
+      <ul>
+      	<li>Click 'Start Gif' button to begin making a Gif and hit it again to stop. <br> 
+      		A new window will display your gif. Check your pop-up blocker if you have problems.</li>
+      	<li> Filters will only apply to the big image and the small images.</li>
+      	<li>When you click on 'Take a Photo' an image will be taken with the current filter and it will download 
+      	onto your computer.</li>
+      	<li> Selecting 'Save to Page' will prompt for a webcam access and then take the picture and show it on the page. This will be deleted if you refresh the page.</li>
+      </ul>
+      	
+      	<ul> 
+      		Credits:
+      		<li> Modal by codepen.io/maccadb7</li>
+      	<li>Gif Code: GitHub User - antiboredom </li>
+      	<li>gifShot: http://yahoo.github.io/gifshot/ </li>
+    </div>
+    <div class="modal-footer">
+      <a href="#close" class="btn">Nice!</a>  <!--CHANGED TO "#close"-->
+    </div>
+    </div>
+  </div>
+</div>
+
+
+  	<div id="wrapper" class="wrapper">
+  		<h1> PhotoBooth / .Gif Maker </h1>
+  		<div id="myContainer">
+
+  		</div>
+
+  		 <a href="#modal-one" class="btn btn-big">Information</a>
+  	</div>
+
+  
+  <img class="imageClass" id="storedGraphics" src=""/>
+
+
+  </body>
+
+</html>
