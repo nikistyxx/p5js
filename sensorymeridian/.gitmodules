@@ -1,0 +1,3 @@
+[submodule "js-cam-motion"]
+	path = js-cam-motion
+	url = https://github.com/nathanallen/js-cam-motion.git
