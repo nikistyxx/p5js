@@ -1,0 +1,15 @@
+{
+  "name": "convocomp",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node text_server.js"
+  },
+  "dependencies": {
+    "express": "^4.12.3",
+    "twilio": "^1.11.1"
+  },
+  "engines": {
+    "node": "0.8.x",
+    "npm": "2.2.x"
+  }
+}

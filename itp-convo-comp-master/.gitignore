@@ -1,0 +1,6 @@
+*/node_modules/*
+node_modules/*
+.DS_Store
+*.DS_Store
+*/*.DS_Store
+Mail_API/02_lob_postcard_p5/images/*.png
