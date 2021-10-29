@@ -3,8 +3,8 @@ var smallPoint = 10;
 var largePoint = 30;
 
 function preload() {
-  myFont = loadFont('img/futura.otf');
-  img = loadImage("img/agate.jpg");
+  myFont = loadFont('img/LynoJean.otf');
+  img = loadImage("img/bird.jpg");
 }
 
 function setup() {
